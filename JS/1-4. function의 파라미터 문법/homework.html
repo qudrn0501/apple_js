@@ -11,15 +11,18 @@
 <!-- 버튼을 2개 만들어서 하나는 아이디 입력하세요,
   다른 하나는 비번 입력하세요 알림창이 나오게 만드셈 -->
 
-  <div class="alert-box" id="alert"></div>
+  <div class="alert-box" id="alert">
+    <p id="text">알림창임</p>
+    <button onclick="알림창열기('none','알림창임')">닫기</button>
+  </div>
 
-  <button onclick="알림창열기('아이디입력하세요')">버튼1</button>
-  <button onclick="알림창열기('비번입력하세요')">버튼2</button>
+  <button onclick="알림창열기('block', '아이디입력하세요')">버튼1</button>
+  <button onclick="알림창열기('block', '비번입력하세요')">버튼2</button>
 
   <script>
-    function 알림창열기(파라미터){
-      document.getElementById('alert').style.display='block'
-      document.getElementById('alert').innerHTML = 파라미터;
+    function 알림창열기(파라미터, 파라미터2){
+      document.getElementById('alert').style.display=파라미터;
+      document.getElementById('text').innerHTML = 파라미터2;
     }
   </script>
 </body>
