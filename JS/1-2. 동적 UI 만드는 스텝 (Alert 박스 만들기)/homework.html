@@ -5,13 +5,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="homework.css">
 </head>
 <body>
-  <!-- id가 hello인 글자의 폰트 사이즈를 자바스크립트를 이용해 16px로 줄여오기 -->
-  <h1 id="hello">안녕하세요</h1>
+<!-- 알림창 닫기버튼과 기능 만들어오셈 -->
 
-  <script>
-    document.getElementById('hello').style.fontSize = "16px";
-  </script>
+  <div class="alert-box" id="alert">
+    알림창임
+    <button onclick="document.getElementById('alert').style.display='none'">닫기</button>
+  </div>
+
+  <button onclick="document.getElementById('alert').style.display='block'">버튼</button>
+
 </body>
 </html>
