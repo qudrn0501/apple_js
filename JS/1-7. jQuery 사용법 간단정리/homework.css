@@ -14,3 +14,6 @@
   border-radius: 5px;
   padding: 30px;
 } 
+.black-bg.show {
+  display: block;
+}
