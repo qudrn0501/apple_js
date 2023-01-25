@@ -153,34 +153,26 @@
     // (응용) 사진이 늘어나도 가능한 확장성 있는 코드 만들기
     $('.slide-1').on('click', function(){
       $('.slide-container').css('transform','translateX(0vw)');
+      let 지금사진 = 1;
     })
     $('.slide-2').on('click', function(){
       $('.slide-container').css('transform','translateX(-100vw)');
+      let 지금사진 = 2;
     })
     $('.slide-3').on('click', function(){
       $('.slide-container').css('transform','translateX(-200vw)');
+      let 지금사진 = 3;
     })
 
     let 지금사진 = 1;
     $('.next').on('click', function(){
-      if (지금사진 == 1) {
-        $('.slide-container').css('transform','translateX(-100vw)');
-        지금사진++;
-      } else if (지금사진 == 2) {
-        $('.slide-container').css('transform','translateX(-200vw)');
-        지금사진++;
-      }
+      $('.slide-container').css('transform','translateX(-' + 지금사진 + '00vw)');
+      지금사진++;
     })
     $('.prev').on('click', function(){
-      if (지금사진 == 3) {
-        $('.slide-container').css('transform','translateX(-100vw)');
-        지금사진--;
-      } else if (지금사진 == 2) {
-        $('.slide-container').css('transform','translateX(0vw)');
-        지금사진--;
-      }
+      $('.slide-container').css('transform','translateX(-' + (지금사진-2) + '00vw)');
+      지금사진--;
     })
-
 
   </script>
   </body>
