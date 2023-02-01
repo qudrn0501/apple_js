@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="./main.css">
+    <title>Hello, world!</title>
+    <style>
+    </style>
+  </head>
+  <body>
+    <div class="card-group container">
+      <div class="card">
+        <img src="https://via.placeholder.com/600">
+        <div class="card-body">
+          <h5>Card title</h5>
+          <p>가격 : <span>70000</span></p>
+          <button class="btn btn-danger">주문하기</button>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/600">
+        <div class="card-body">
+          <h5>Card title</h5>
+          <p>가격 : <span>70000</span></p>
+          <button class="btn btn-danger">주문하기</button>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/600">
+        <div class="card-body">
+          <h5>Card title</h5>
+          <p>가격 : <span>70000</span></p>
+          <button class="btn btn-danger">주문하기</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="container">
+      <div class="row">
+    
+          <div class="col-sm-4">
+            <img src="https://via.placeholder.com/600" class="w-100">
+            <h5>Card title</h5>
+            <p>가격 : 70000</p>
+          </div>
+    
+      </div>
+    </div>  -->
+
+    <!-- 부트스트랩 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <!-- jquery cdn -->
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script src="./tab.js"></script>
+    <script>
+      var products = [
+        { id : 0, price : 70000, title : 'Blossom Dress' },
+        { id : 1, price : 50000, title : 'Springfield Shirt' },
+        { id : 2, price : 60000, title : 'Black Monastery' }
+      ];
+
+      for(let i=0; i < products.length; i++) {
+        document.querySelectorAll('h5')[i].innerHTML = products[i].title;
+        document.querySelectorAll('span')[i].innerHTML = products[i].price;
+      }
+
+      // Ajax 개념정리
+      /* 서버와 데이터 주고받는 방법
+      서버 = 데이터달라고 하면 데이터 보내주는 프로그램
+      1. 어떤 데이터인지 (데이터의 url 기재해야함)
+      2. 어떤 방법으로 요청할건지 (get/post 둘 중 하나를 선택해야함)
+      get : 데이터를 가져와서 봄
+      post : 데이터를 서버에 보냄
+      get/post 요청하면 브라우저 새로고침 됌 -> ajax는 안그럼
+      ajax : 새로고침 없이 get, post 요청하는 기능
+      */
+
+      // ajax로 get 요청하는 법 (live server로 띄워야함)
+      // $.get() 얘는 json -> object 자동 변환해줌
+      // axios 라이브러리 (ajax 편하게 쓰고 싶을때 씀)
+      $.get('https://codingapple1.github.io/hello.txt123').done(function(data){
+        console.log(data);
+      }).fail(function(){
+        console.log('실패함');
+      })
+
+      $.get('https://codingapple1.github.io/price.json').done(function(data){
+        console.log(data.price);
+      }).fail(function(){
+        console.log('실패함');
+      })
+
+      // 브라우저 기본함수 : fetch써도 ajax 가능
+      // (참고) 서버와 유저는 문자자료만 주고받을 수 있음
+      // array, object 형태도 "{ "age" : 20}"처럼 문자로 만들었음 (json형태, 원하는 자료만 뽑아쓰기 어려움)
+      fetch('https://codingapple1.github.io/price.json')
+      .then(res => res.json()) // 받아온 json을 object로 바꿔주는 기능
+      .then(data => {
+        console.log(data);
+      })
+      .catch(error => {
+        console.log(error);
+      })
+
+      // ajax로 post 요청하는 법 
+      /* 지금은 서버가 없으니 ㄴㄴ
+      $.post('https://codingapple1.github.io/hello.txt', {name : 'kim'}).done(function(data){
+        console.log(data)
+      })
+      */
+
+      // (숙제) 자바스크립트를 이용해서 카드레이아웃을 3개 생성해오기
+      // var products에 있던 데이터도 html에 잘 꽂혀있어야 합니다.
+      // 카드 마크업은 위에 주석으로 처리해놓음
+
+
+    </script>
+  </body>
+</html>
